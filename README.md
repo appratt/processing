@@ -1,2 +1,2 @@
 # processing
-processing sketches and experiements
+processing sketches and experiments
