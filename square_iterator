@@ -1,0 +1,64 @@
+void setup() {
+  size(800, 800);
+  background(250);
+  noStroke();
+  noLoop();
+  noFill();
+
+}
+
+void draw() {
+  float shapeX = 50;
+  float shapeY = 50;
+  float shapeW = 50;
+  float shapeH = 50;
+  
+  float offsetX = 0;
+  float offsetY = 0;
+  
+  int rows = 5;
+  int columns = 10;
+
+  int sqWeight = 2;
+  
+  int colorR = 0;
+  int colorG = 100;
+  int colorB = 0;
+  
+  // Turns the color varation on and off
+  boolean colorChange = false;
+  
+  for (int i=1; i<rows+1; i++){
+    for (int j=1; j<columns+1; j++){
+      //if (j>2){
+      //  rotate(PI/10);
+      //}
+      
+      if (colorChange == true){
+        if (colorR < 255){
+          colorR = colorR + j*1;
+        }
+      
+        if (colorG < 255){
+          colorG = colorG + j*1;
+        }
+      
+        if (colorB < 255){
+          colorB = colorB + j*1;
+        }
+      }
+      drawSq(i*(shapeX + offsetX), j*(shapeY + offsetY), shapeW, shapeH, sqWeight, colorR, colorG, colorB);
+      
+      //println("x pos", i*(shapeX + offsetX));
+      //println("y pos", j*(shapeY + offsetY));
+    }
+  }
+  
+}
+
+//draws a square shape
+void drawSq(float shapeX, float shapeY, float shapeW, float shapeH, int sqWeight, int colorR, int colorG, int colorB) {
+  strokeWeight(sqWeight);
+  stroke(colorR, colorG, colorB);
+  rect(shapeX, shapeY, shapeW, shapeH);
+}
